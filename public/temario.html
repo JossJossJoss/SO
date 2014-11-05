@@ -1,32 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
 <head>
 	<meta charset="UTF-8">
 	<title>Holi</title>
 	<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
 	<link rel="stylesheet" href="stylesheets/bootstrap-theme.min.css">
-	<script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.js'"></script>
-    <script src="js/jquery.js'"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.js"></script>
 </head>
-<body>
+<body ng-controller="temario">
+ <header class="navbar nb navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <a href="#" class="navbar-brand" id="Brand">Joss</a>
+        <button class="navbar-toggle" data-toggle = "collapse" data-target=".navHeaderCollapse">
+          <span id="toggle" class="icon-bar"></span>
+          <span id="toggle" class="icon-bar"></span>
+          <span id="toggle" class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse navHeaderCollapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <br>
+            </li>
+            <li><a id="nav-element" href="/">Inicio</a></li>
+            <li><a id="nav-element" href="#temario">Temario</a></li>
+            <li><a id="nav-element" href="#">Información</a></li>
+            <li><a id="nav-element" href="#">Equipo</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <hr>
+    <hr>
 	<div class="container">
-		<div class="raw">
-			<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Introduccion a Los Sistemas Operativos</div>
-  <div class="panel-body">
-    <p>...</p>
+		<div class="raw"  >
+			<div id="temario"class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" >
+  <div class="panel panel-default" ng-repeat="tema in temas">
+    <div class="panel-heading" role="tab" id="{{tema.h}}">
+      <h4 class="panel-title " data-toggle="collapse" data-parent="#accordion" href="#{{tema.id}}" aria-expanded="{{tema.bin}}" aria-controls="{{tema.id}}">
+        <a >
+          {{tema.nombre}}
+        </a>
+      </h4>
+    </div>
+    <div id="{{tema.id}}" class="panel-collapse collapse " role="tabpanel" aria-labelledby="{{tema.h}}">
+      <div class="panel-body">{{tema.descripcion}}
+      </div>
+    </div>
   </div>
-
-  <!-- List group -->
-  <ul class="list-group">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-  </ul>
 		</div>
 	</div>
 </div>
+<script src="js/angular.min.js"></script>
+<script src="js/temario.js"></script>
 </body>
 </html>
